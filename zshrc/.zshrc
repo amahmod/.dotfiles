@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export editor="nvim"
+export EDITOR="nvim"
 
 ZSH_THEME="agnoster"
 
