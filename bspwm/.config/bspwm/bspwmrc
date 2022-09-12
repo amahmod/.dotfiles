@@ -12,6 +12,7 @@ picom -b --experimental-backends &
 xset r rate 300 50 &
 xsetroot -cursor_name left_ptr &
 unclutter &
+feh --bg-fill ~/.config/wall.jpg &
 
 killall bspswallow
 pidof bspswallow | bspswallow &
