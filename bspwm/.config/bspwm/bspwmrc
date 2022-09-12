@@ -75,3 +75,6 @@ for i in ${communication[@]}; do
 declare -a media=(Skype Slack Telegram)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^9' state=floating follow=on focus=on; done
+
+# startup application
+startupapps &
