@@ -6,7 +6,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	yarn
-	docker 
+	docker
 	copypath
 	copyfile
 	colorize
@@ -20,3 +20,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
