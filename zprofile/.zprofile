@@ -29,5 +29,5 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep bspwm || startx "$XDG_CONFIG_HOME/X11/xinitrc"
+	pgrep bspwm || startx
 fi
