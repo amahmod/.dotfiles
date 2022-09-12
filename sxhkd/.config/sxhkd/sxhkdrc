@@ -45,16 +45,7 @@ shift + Print
 
 # Rofi App Launcher
 super + space
-	sh ~/.config/rofi/bin/launcher
-
-
-# Rofi Menus/Applets
-super + {w,x}
-	sh ~/.config/rofi/bin/{windows,powermenu}
-
-# Rofi Themes Menu
-ctrl + alt + t
-	sh ~/.config/rofi/bin/themes
+	dmenu_run
 
 
 #--
