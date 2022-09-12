@@ -3,14 +3,15 @@ bspc rule -r "*"
 
 wmname LG3D
 export _JAVA_AWT_WM_NONREPARENTING=1
-PATH="$HOME/.config/bspwm/scripts:$PATH"
 
 xrdb -merge $HOME/.Xdefaults &
 xrdb -merge $HOME/.Xresources &
 xrdb ~/.Xresources &
 
+killall bspswallow
+pidof bspswallow | bspswallow &
 
-
+feh --bg-fill ~/.config/wall.jpg &
 
 ###---WORKSPACES---###
 workspaces() {
@@ -20,12 +21,9 @@ workspaces() {
 		let name++
 	done
 }
+
 workspaces
 
-
-source launcher
-
-feh --bg-fill ~/.config/wall.jpg &
 
 #### BSPWM configuration ####
 
@@ -77,5 +75,3 @@ for i in ${communication[@]}; do
 declare -a media=(Skype Slack Telegram)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^9' state=floating follow=on focus=on; done
-
-
