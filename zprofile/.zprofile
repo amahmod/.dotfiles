@@ -27,4 +27,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-. "$HOME/.cargo/env"
+
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+	pgrep bspwm || startx "$XDG_CONFIG_HOME/X11/xinitrc"
+fi
