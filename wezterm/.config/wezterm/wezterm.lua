@@ -8,7 +8,7 @@ return {
     -- family = 'CaskaydiaCove Nerd Font Mono',
   }),
   font_size = 12.0,
-  line_height = 1.35,
+  line_height = 1.0,
   text_background_opacity = 0.85,
   bold_brightens_ansi_colors = true,
   -- }}}
