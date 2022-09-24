@@ -15,11 +15,25 @@ feh --bg-fill ~/.config/wall.jpg &
 
 ###---WORKSPACES---###
 workspaces() {
-	name=1
-	for monitor in `bspc query -M`; do
-		bspc monitor ${monitor} -n "$name" -d '1' '2' '3' '4' '5' '6'
-		let name++
-	done
+
+WS1=1
+WS2=2
+WS3=3
+WS4=4
+WS5=5
+WS6=6
+WS7=7
+WS8=8
+WS9=9
+
+connected_monitor_count=$(xrandr | grep " connected " | awk "{ print$1 }" | wc -l )
+
+if [ $connected_monitor_count -gt 1 ]; then
+    bspc monitor HDMI-0 -d $WS1 $WS2 $WS3 $WS4
+    bspc monitor DP-1 -d $WS5 $WS6 $WS7 $WS8 $WS9
+else
+    bspc monitor -d $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9
+fi
 }
 
 workspaces
