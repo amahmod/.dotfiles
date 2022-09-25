@@ -45,7 +45,7 @@ shift + Print
 
 # Rofi App Launcher
 super + space
-	dmenu_run
+	rofi -show drun
 
 
 #--
