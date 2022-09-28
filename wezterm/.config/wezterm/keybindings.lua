@@ -93,12 +93,12 @@ return {
 
   -- Close Pane/Tab {{{
   {
-    key = 'x',
+    key = 'q',
     mods = 'CTRL',
     action = wezterm.action.CloseCurrentPane({ confirm = true }),
   },
   {
-    key = 'x',
+    key = 'q',
     mods = 'CTRL|SHIFT',
     action = wezterm.action.CloseCurrentTab({ confirm = true }),
   },
