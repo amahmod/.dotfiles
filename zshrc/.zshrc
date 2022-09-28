@@ -1,7 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="gnzh"
 
 plugins=(
 	git
@@ -25,10 +25,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 
+# Install global npm pacakges without sudo
 NPM_PACKAGES="${HOME}/.local/.npm-packages"
-
 export PATH="$PATH:$NPM_PACKAGES/bin"
-
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
