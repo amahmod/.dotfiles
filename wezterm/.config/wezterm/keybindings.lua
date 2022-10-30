@@ -98,7 +98,7 @@ return {
     action = wezterm.action.CloseCurrentPane({ confirm = true }),
   },
   {
-    key = 'q',
+    key = 'x',
     mods = 'CTRL|SHIFT',
     action = wezterm.action.CloseCurrentTab({ confirm = true }),
   },

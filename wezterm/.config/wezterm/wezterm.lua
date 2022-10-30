@@ -3,8 +3,8 @@ local keybindings = require('keybindings')
 
 return {
     -- Font {{{
-    font = wezterm.font({
-        family = 'JetBrainsMono Nerd Font',
+    font = wezterm.font_with_fallback({
+        'JetBrainsMono Nerd Font',
     }),
     font_size = 14,
     line_height = 1.5,
@@ -23,7 +23,7 @@ return {
         top = 0,
         bottom = 0,
     },
-    window_background_opacity = 0.7,
+    window_background_opacity = 0.8,
     adjust_window_size_when_changing_font_size = false,
     -- }}}
 
