@@ -2,15 +2,16 @@ local wezterm = require('wezterm')
 local act = wezterm.action
 
 return {
+
   -- Copy/Paste {{{
-  { key = 'v', mods = 'ALT', action = 'ActivateCopyMode' },
-  { key = 'C', mods = 'CTRL|SHIFT', action = act({ CopyTo = 'Clipboard' }) },
-  { key = 'V', mods = 'CTRL|SHIFT', action = act({ PasteFrom = 'Clipboard' }) },
+  { key = 'Enter', mods = 'ALT', action = 'ActivateCopyMode' },
+  { key = 'C', mods = 'ALT', action = act({ CopyTo = 'Clipboard' }) },
+  { key = 'V', mods = 'ALT', action = act({ PasteFrom = 'Clipboard' }) },
   -- }}}
 
   -- {{{ Scroll
-  { key = 'U', mods = 'CTRL', action = wezterm.action.ScrollByPage(-0.5) },
-  { key = 'D', mods = 'CTRL', action = wezterm.action.ScrollByPage(0.5) },
+  { key = 'u', mods = 'ALT', action = wezterm.action.ScrollByPage(-0.5) },
+  { key = 'd', mods = 'ALT', action = wezterm.action.ScrollByPage(0.5) },
   {
     key = 'Home',
     mods = '',
@@ -57,23 +58,87 @@ return {
   },
   -- }}}
 
+  -- Close Pane/Tab {{{
+
+  {
+    key = 'q',
+    mods = 'ALT',
+    action = wezterm.action.CloseCurrentPane({ confirm = true }),
+  },
+  {
+    key = 'q',
+    mods = 'ALT|SHIFT',
+    action = wezterm.action.CloseCurrentTab({ confirm = true }),
+  },
+
+  -- }}}
+
+  -- Split {{{
+
+  {
+    key = '|',
+    mods = 'ALT|SHIFT',
+    action = wezterm.action({ SplitHorizontal = { domain = 'CurrentPaneDomain' } }),
+  },
+
+  {
+    key = '_',
+    mods = 'ALT|SHIFT',
+    action = wezterm.action({ SplitVertical = { domain = 'CurrentPaneDomain' } }),
+  },
+
+  -- }}}
+
+  -- Pane {{{
+
+  { key = 'H', mods = 'ALT|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Left', 5 } }) },
+  { key = 'J', mods = 'ALT|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Down', 5 } }) },
+  { key = 'K', mods = 'ALT|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Up', 5 } }) },
+  { key = 'L', mods = 'ALT|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Right', 5 } }) },
+  { key = 'h', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Left' }) },
+  { key = 'j', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Down' }) },
+  { key = 'k', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Up' }) },
+  { key = 'l', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Right' }) },
+
+  -- }}}
+
+  -- Tab  {{{
+
+  { key = 'n', mods = 'ALT|SHIFT', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
+  { key = ',', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = -1 }) },
+  { key = '.', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = 1 }) },
+  { key = '1', mods = 'ALT', action = wezterm.action({ ActivateTab = 0 }) },
+  { key = '2', mods = 'ALT', action = wezterm.action({ ActivateTab = 1 }) },
+  { key = '3', mods = 'ALT', action = wezterm.action({ ActivateTab = 2 }) },
+  { key = '4', mods = 'ALT', action = wezterm.action({ ActivateTab = 3 }) },
+  { key = '5', mods = 'ALT', action = wezterm.action({ ActivateTab = 4 }) },
+  { key = '6', mods = 'ALT', action = wezterm.action({ ActivateTab = 5 }) },
+  { key = '7', mods = 'ALT', action = wezterm.action({ ActivateTab = 6 }) },
+  { key = '8', mods = 'ALT', action = wezterm.action({ ActivateTab = 7 }) },
+
+  -- }}}
+
+  -- {{{ Increase/Decrease font size
+
+  { key = '=', mods = 'ALT', action = 'IncreaseFontSize' },
+  { key = '-', mods = 'ALT', action = 'DecreaseFontSize' },
+  { key = '0', mods = 'ALT', action = 'ResetFontSize' },
+  { key = 'Numpad0', mods = 'ALT', action = 'ResetFontSize' },
+
+  -- }}}
+
+  --  Misc {{{
   {
     key = [[/]],
-    mods = 'CTRL',
+    mods = 'ALT',
     action = wezterm.action_callback(function(window, pane)
       local selection = window:get_selection_text_for_pane(pane)
       window:perform_action(wezterm.action({ Search = { CaseInSensitiveString = selection } }), pane)
     end),
   },
-
-  { key = 'Backspace', mods = 'CTRL', action = { SendKey = { key = 'w', mods = 'CTRL' } } },
-
-  { key = 'P', mods = 'CTRL', action = wezterm.action.QuickSelect }, -- select path
-  { key = 'L', mods = 'CTRL|SHIFT', action = wezterm.action.QuickSelectArgs({ patterns = { '^.+$' } }) }, -- select line
-  { key = 'F', mods = 'CTRL|SHIFT', action = wezterm.action.Search({ Regex = '' }) }, -- search regex
   {
-    key = 'O',
-    mods = 'CTRL|SHIFT',
+    key = 'o',
+    mods = 'ALT',
     action = wezterm.action({
       QuickSelectArgs = {
         label = 'open url',
@@ -88,67 +153,8 @@ return {
       },
     }),
   },
-
-  { key = 'o', mods = 'ALT', action = wezterm.action.ShowLauncher },
-
-  -- Close Pane/Tab {{{
-  {
-    key = 'q',
-    mods = 'CTRL',
-    action = wezterm.action.CloseCurrentPane({ confirm = true }),
-  },
-  {
-    key = 'x',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.CloseCurrentTab({ confirm = true }),
-  },
-  -- }}}
-
-  -- Split {{{
-  {
-    key = '|',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action({ SplitHorizontal = { domain = 'CurrentPaneDomain' } }),
-  },
-  {
-    key = '_',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action({ SplitVertical = { domain = 'CurrentPaneDomain' } }),
-  },
-  -- }}}
-
-  -- Pane {{{
-  { key = 'H', mods = 'CTRL|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Left', 5 } }) },
-  { key = 'J', mods = 'CTRL|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Down', 5 } }) },
-  { key = 'K', mods = 'CTRL|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Up', 5 } }) },
-  { key = 'L', mods = 'CTRL|SHIFT', action = wezterm.action({ AdjustPaneSize = { 'Right', 5 } }) },
-  { key = 'h', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Left' }) },
-  { key = 'j', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Down' }) },
-  { key = 'k', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Up' }) },
-  { key = 'l', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Right' }) },
-  -- }}}
-
-  -- Tab  {{{
-  { key = 'n', mods = 'CTRL|SHIFT', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
-  { key = '[', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = -1 }) },
-  { key = ']', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = 1 }) },
-
-  { key = '1', mods = 'ALT', action = wezterm.action({ ActivateTab = 0 }) },
-  { key = '2', mods = 'ALT', action = wezterm.action({ ActivateTab = 1 }) },
-  { key = '3', mods = 'ALT', action = wezterm.action({ ActivateTab = 2 }) },
-  { key = '4', mods = 'ALT', action = wezterm.action({ ActivateTab = 3 }) },
-  { key = '5', mods = 'ALT', action = wezterm.action({ ActivateTab = 4 }) },
-  { key = '6', mods = 'ALT', action = wezterm.action({ ActivateTab = 5 }) },
-  { key = '7', mods = 'ALT', action = wezterm.action({ ActivateTab = 6 }) },
-  { key = '8', mods = 'ALT', action = wezterm.action({ ActivateTab = 7 }) },
-  -- }}}
-
-  -- {{{ Increase/Decrease font size
-  { key = '=', mods = 'CTRL', action = 'IncreaseFontSize' },
-  { key = '-', mods = 'CTRL', action = 'DecreaseFontSize' },
-  { key = '0', mods = 'CTRL', action = 'ResetFontSize' },
-  { key = 'Numpad0', mods = 'CTRL', action = 'ResetFontSize' },
+  { key = 'p', mods = 'ALT', action = wezterm.action.ShowLauncher },
   -- }}}
 }
 
--- vim:fdl=1:fdm=marker:
+-- vim:fdl=0:fdm=marker:
