@@ -136,20 +136,16 @@ super + ctrl + {h,l,k,j}
 # {{{ RESIZE WINDOW
 
 # Expand window horizontally
-super + alt + h
-	bspc node -z right +20 0 && bspc node -z left -20 0
 
-# Contract window horizontally
-super + alt + l
-    bspc node -z right -20 0 && bspc node -z left +20 0
-
-# Expand window vertically
-super + alt + j
-    bspc node -z top +0 20 && bspc node -z bottom +0 -20
-
-# Contract window vertically
-super + alt + k
-    bspc node -z top +0 -20 && bspc node -z bottom +0 20
+super + alt + {h,j,k,l}
+    {bspc node -z right -20 0; \
+    bspc node -z left +20 0, \
+    bspc node -z top 0 -20; \
+    bspc node -z bottom 0 +20, \
+    bspc node -z top 0 +20; \
+    bspc node -z bottom 0 -20, \
+    bspc node -z right +20 0; \
+    bspc node -z left -20 0}
 
 # }}}
 
