@@ -63,12 +63,12 @@ return {
   {
     key = 'q',
     mods = 'ALT',
-    action = wezterm.action.CloseCurrentPane({ confirm = true }),
+    action = wezterm.action.CloseCurrentPane({ confirm = false }),
   },
   {
     key = 'q',
     mods = 'ALT|SHIFT',
-    action = wezterm.action.CloseCurrentTab({ confirm = true }),
+    action = wezterm.action.CloseCurrentTab({ confirm = false }),
   },
 
   -- }}}
