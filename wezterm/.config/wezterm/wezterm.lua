@@ -5,6 +5,7 @@ return {
     -- Font {{{
     font = wezterm.font_with_fallback({
         'MonoLisa',
+        'Symbola',
     }),
     font_size = 12,
     line_height = 1.0,
