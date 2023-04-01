@@ -8,11 +8,10 @@ export PATH="$PATH:/opt/freelancer-desktop-app/bin"
 export CODEEDITOR="nvim"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="google-chrome-stable"
 export READER="zathura"
 export FILE="lf"
-export WM="bspwm"
 export PAGER="less"
 
 # less/man colors
@@ -27,7 +26,3 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-
-if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep bspwm || startx
-fi
