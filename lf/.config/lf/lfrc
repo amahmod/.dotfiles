@@ -9,7 +9,7 @@ set ignorecase true
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|application/json) $EDITOR "$f";;
-        image/*) sxiv "$f" & disown;;
+        image/*) swayimg "$f" & disown;;
         video/*|*/application/pdf) xdg-open "$f" & disown;;
         *) xdg-open "$f" ;;
     esac
@@ -44,7 +44,7 @@ cmd sudomkfile ${{
 }}
 
 cmd setwallpaper ${{
-  cp "$f" ~/.config/wall.jpg && feh --bg-scale --no-fehbg "$f"
+  cp "$f" ~/.config/wallpaper.jpg && swaybg -i "$f" &
 }}
 
 cmd fzf_jump ${{
