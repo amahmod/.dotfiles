@@ -14,28 +14,28 @@
 @define-color accent6 #ebbcba;
 
 /* DRACULA */
-@define-color accent1 #ff5555;
-@define-color accent2 #50fa7b;
-@define-color accent3 #f1fa8c;
-@define-color accent4 #bd93f9;
-@define-color accent5 #ff79c6;
-@define-color accent6 #8be9fd;
+/* @define-color accent1 #ff5555; */
+/* @define-color accent2 #50fa7b; */
+/* @define-color accent3 #f1fa8c; */
+/* @define-color accent4 #bd93f9; */
+/* @define-color accent5 #ff79c6; */
+/* @define-color accent6 #8be9fd; */
 
 /* MONOKAI PRO */
-@define-color accent1 #ff6188;
-@define-color accent2 #a9dc76;
-@define-color accent3 #ffd866;
-@define-color accent4 #fc9867;
-@define-color accent5 #ab9df2;
-@define-color accent6 #78dce8;
+/* @define-color accent1 #ff6188; */
+/* @define-color accent2 #a9dc76; */
+/* @define-color accent3 #ffd866; */
+/* @define-color accent4 #fc9867; */
+/* @define-color accent5 #ab9df2; */
+/* @define-color accent6 #78dce8; */
 
 /* TOKYO NIGHT */
-@define-color accent1 #ff7a93;
-@define-color accent2 #b9f27c;
-@define-color accent3 #ff9e64;
-@define-color accent4 #bb9af7;
-@define-color accent5 #7da6ff;
-@define-color accent6 #0db9d7;
+/* @define-color accent1 #ff7a93; */
+/* @define-color accent2 #b9f27c; */
+/* @define-color accent3 #ff9e64; */
+/* @define-color accent4 #bb9af7; */
+/* @define-color accent5 #7da6ff; */
+/* @define-color accent6 #0db9d7; */
 
 * {
     border: none;
@@ -51,7 +51,7 @@
 
 window#waybar {
     background-color: transparent;
-    color: #ffffff;
+    color: @fgcolor;
     transition-property: background-color;
     transition-duration: 0.5s;
     border-radius: 0;
@@ -68,7 +68,6 @@ window#waybar.empty {
 window#waybar.solo {
     background-color: #FFFFFF;
 }
-*/
 
 window#waybar.termite {
     background-color: #3f3f3f;
@@ -78,12 +77,13 @@ window#waybar.chromium {
     background-color: #000000;
     border: none;
 }
+*/
 
 #workspaces button {
     padding: 0 0 0 0;
     margin: 4px 0 6px 0;
     background-color: transparent;
-    color: #ffffff;
+    color: @fgcolor;
     min-width: 36px;
     /* Use box-shadow instead of border so the text isn't offset */
     /*    box-shadow: inset 0 -3px transparent;*/
@@ -93,8 +93,8 @@ window#waybar.chromium {
 #workspaces button.active {
     padding: 0 0 0 0;
     margin: 4px 0 6px 0;
-    background-color: #ddddff;
-    color: #000000;
+    background-color: @accent4;
+    color: @accent2;
     min-width: 36px;
     /* Use box-shadow instead of border so the text isn't offset */
     /*    box-shadow: inset 0 -3px transparent;*/
@@ -103,7 +103,8 @@ window#waybar.chromium {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @bgcolor;
+    color: @fgcolor;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
 
@@ -114,7 +115,7 @@ window#waybar.chromium {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @accent1;
 }
 
 #mode {
@@ -272,7 +273,7 @@ label:focus {
 }
 
 #mpd {
-    background-color: #66cc99;
+    background-color: #67cc99;
     color: #2a5c45;
 }
 
@@ -301,13 +302,6 @@ label:focus {
     color: #606060;
     margin: 0 1px;
     padding-bottom: 5px;
-}
-
-.custom-spotify {
-    padding: 0 10px;
-    margin: 4px 4px;
-    background-color: rgba(56, 220, 114, 0.4);
-    color: black;
 }
 
 #custom-wmname {
