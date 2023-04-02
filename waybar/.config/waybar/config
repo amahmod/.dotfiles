@@ -1,0 +1,24 @@
+[
+    {
+        "include": ["~/.config/waybar/modules.json"],
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "spacing": 4,
+        "modules-left": ["wlr/workspaces"],
+        "modules-center": ["clock"],
+        "modules-right": ["network", "pulseaudio", "cpu", "memory", "keyboard-state", "tray"],
+        "output": "HDMI-A-1"
+    },
+    {
+        "include": ["~/.config/waybar/modules.json"],
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "spacing": 4,
+        "modules-left": ["wlr/workspaces"],
+        "modules-center": [],
+        "modules-right": ["keyboard-state", "tray"],
+        "output": "!HDMI-A-1"
+    }
+]
