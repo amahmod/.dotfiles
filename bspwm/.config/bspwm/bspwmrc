@@ -56,6 +56,10 @@ bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
 
+
+bspc config focused_border_color \#66b2b2
+bspc config active_border_color \#008080
+
 #polybar hidden when fullscreen for vlc, youtube, mpv ...
 #find out the name of your monitor with xrandr
 xdo below -t $(xdo id -n root) $(xdo id -a polybar-left_DP-1)
