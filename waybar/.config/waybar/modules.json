@@ -28,7 +28,7 @@
         "all-outputs": false,
         "output": "HDMI-A-1",
         "interval": 60,
-        "format": "{:%I:%m}",
+        "format": "{:%I:%M}",
         "tooltip": true,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
