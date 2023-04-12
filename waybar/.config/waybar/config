@@ -6,7 +6,7 @@
         "height": 30,
         "spacing": 4,
         "modules-left": ["wlr/workspaces"],
-        "modules-center": ["clock"],
+        "modules-center": ["clock" ],
         "modules-right": ["network", "pulseaudio", "cpu", "memory", "keyboard-state"],
         "output": "HDMI-A-1"
     },
@@ -17,8 +17,7 @@
         "height": 30,
         "spacing": 4,
         "modules-left": ["wlr/workspaces"],
-        "modules-center": [],
-        "modules-right": ["keyboard-state", "tray"],
-        "output": "!HDMI-A-1"
-    }
+        "modules-center": ["disk",],
+        "modules-right": ["custom/lock_screen","keyboard-state", "tray"],
+        "output": "!HDMI-A-1" }
 ]
