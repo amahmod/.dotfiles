@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CONFIG="$HOME/.config/hypr/wofi/default/config"
-STYLE="$HOME/.config/hypr/wofi/default/style.css"
-COLORS="$HOME/.config/hypr/wofi/default/colors"
+CONFIG="$HOME/.config/hypr/wofi/full_width/config"
+STYLE="$HOME/.config/hypr/wofi/full_width/style.css"
+COLORS="$HOME/.config/hypr/wofi/full_width/colors"
 
 if [[ ! $(pidof wofi) ]]; then
 	wofi --show drun --prompt 'Search...' --conf ${CONFIG} --style ${STYLE} --color ${COLORS}

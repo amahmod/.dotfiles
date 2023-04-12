@@ -96,14 +96,19 @@
         "format-icons": [""],
         "on-click-right": "foot --title btop sh -c 'btop'"
     },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown"
+    },
     "custom/menu": {
         "format": "",
         "tooltip": false,
         "on-click": "$HOME/.config/hypr/scripts/menu"
     },
-    "custom/lock_screen": {
+    "custom/lockscreen": {
         "format": "",
-        "on-click": "~/.config/hypr/scripts/lock_screen",
+        "on-click": "~/.config/hypr/scripts/lockscreen",
         "tooltip": false
     }
 }

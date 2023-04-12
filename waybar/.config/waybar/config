@@ -18,6 +18,6 @@
         "spacing": 4,
         "modules-left": ["wlr/workspaces"],
         "modules-center": ["disk",],
-        "modules-right": ["custom/lock_screen","keyboard-state", "tray"],
+        "modules-right": ["keyboard-state", "tray", "custom/lockscreen", "custom/power"],
         "output": "!HDMI-A-1" }
 ]

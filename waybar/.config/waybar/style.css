@@ -163,7 +163,7 @@ window#waybar.chromium {
 }
 
 #clock {
-     color: @accent2;
+     color: @accent6;
 }
 
 #battery {
@@ -229,8 +229,16 @@ label:focus {
     color: #a0a0a0;
 }
 
-#custom-power {
+#disk {
     color: @accent6;
+}
+
+#custom-power {
+    color: @accent3;
+}
+
+#custom-lockscreen {
+    color: @accent4;
 }
 
 #custom-waylandvsxorg {
