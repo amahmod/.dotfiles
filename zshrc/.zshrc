@@ -43,3 +43,10 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 [ ! -d "~/.cargo/bin/" ] && export PATH="$PATH:${HOME}/.cargo/bin"
 [ ! -d "~/go/bin/" ] && export PATH="$PATH:${HOME}/go/bin"
 
+
+# bun completions
+[ -s "/home/amahmod/.bun/_bun" ] && source "/home/amahmod/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
