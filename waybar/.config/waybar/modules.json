@@ -56,8 +56,7 @@
     "network": {
         "all-outputs": false,
         "interval": 2,
-        "interface": "enp*",
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
