@@ -105,5 +105,16 @@
         "format": "",
         "on-click": "~/.config/hypr/scripts/lockscreen",
         "tooltip": false
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}% ",
+        "format-icons": [" ", "", "", "", ""],
+        "max-length": 25
     }
 }
