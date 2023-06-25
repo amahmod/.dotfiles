@@ -193,12 +193,17 @@ poll-interval = 5
 ; Default: %H:%M:%S
 time-format = %H:%M
 format-charging = %{T2}<animation-charging>%{T-} <label-charging>
+format-charging-foreground = ${color.green}
+
 format-discharging = %{T2}<ramp-capacity>%{T-} <label-discharging>
+
 label-charging = %percentage%% %time%
-label-charing-foreground = ${color.green}
+label-charging-foreground = ${color.green}
+
 label-discharging = %percentage%%
 label-discharging-foreground = ${color.orange}
-label-full = %percentage%%
+
+label-full = BATTERY FULL
 label-ful-foreground = ${color.green}
 label-low = BATTERY LOW
 label-low-foreground = ${color.red}
