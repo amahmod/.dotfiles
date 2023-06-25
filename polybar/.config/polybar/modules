@@ -96,6 +96,8 @@ format-padding = 1
 label-focused-foreground = ${color.teal}
 label-dimmed-foreground = #777
 
+label-empty = 
+
 
 ;  ╭──────────────────────────────────────────────────────────╮
 ;  │                           DATE                           │
@@ -276,5 +278,33 @@ icon-pause = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
+
+;  ╭──────────────────────────────────────────────────────────╮
+;  │                       TEMPERATURE                        │
+;  ╰──────────────────────────────────────────────────────────╯
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp><label>
+format-warn = <ramp><label-warn>
+format-font = 2
+
+label = "%temperature-c% "
+label-background = ${color.grey}
+label-foreground = ${color.white}
+label-warn = %temperature-c%
+label-warn-background = ${color.grey}
+label-warn-foreground = ${color.red}
+label-font = 2
+label-warn-font = 2
+
+ramp-0 = "  "
+ramp-1 = "  "
+ramp-2 = "  "
+ramp-background = ${color.grey}
+ramp-foreground = ${color.white}
+ramp-font = 5
 
 ; vim:ft=dosini
