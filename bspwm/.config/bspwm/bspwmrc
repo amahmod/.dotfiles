@@ -15,25 +15,24 @@ feh --bg-fill ~/.config/wall.jpg &
 
 ###---WORKSPACES---###
 workspaces() {
+    WS1=1
+    WS2=2
+    WS3=3
+    WS4=4
+    WS5=5
+    WS6=6
+    WS7=7
+    WS8=8
+    WS9=9
 
-WS1=1
-WS2=2
-WS3=3
-WS4=4
-WS5=5
-WS6=6
-WS7=7
-WS8=8
-WS9=9
+    connected_monitor_count=$(xrandr | grep " connected " | awk "{ print$1 }" | wc -l )
 
-connected_monitor_count=$(xrandr | grep " connected " | awk "{ print$1 }" | wc -l )
-
-if [ $connected_monitor_count -gt 1 ]; then
-    bspc monitor HDMI-0 -d $WS1 $WS2 $WS3 $WS4
-    bspc monitor DP-1 -d $WS5 $WS6 $WS7 $WS8 $WS9
-else
-    bspc monitor -d $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9
-fi
+    if [ $connected_monitor_count -gt 1 ]; then
+        bspc monitor HDMI-0 -d $WS1 $WS2 $WS3 $WS4
+        bspc monitor DP-1 -d $WS5 $WS6 $WS7 $WS8 $WS9
+    else
+        bspc monitor -d $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9
+    fi
 }
 
 workspaces
@@ -62,8 +61,8 @@ bspc config active_border_color \#008080
 
 #polybar hidden when fullscreen for vlc, youtube, mpv ...
 #find out the name of your monitor with xrandr
-xdo below -t $(xdo id -n root) $(xdo id -a polybar-left_DP-1)
-xdo below -t $(xdo id -n root) $(xdo id -a polybar-right_HDMI-0)
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-right_DP-1)
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-left_HDMI-0)
 
 ## -------- Rules ----------------------##
 # remove all rules first
@@ -71,25 +70,43 @@ xdo below -t $(xdo id -n root) $(xdo id -a polybar-right_HDMI-0)
 
 bspc rule -a TopTracker state=floating focus=on desktop="^4"
 
-#  Work
-declare -a work=(Upwork com.freelancer.workspace.launcher.Bootstrap)
-for i in ${work[@]}; do
-   bspc rule -a $i desktop='^4' state=floating follow=on focus=on; done
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                  Freelancer Desktop App                  │
+#  ╰──────────────────────────────────────────────────────────╯
+
+bspc rule -a "com.freelancer.workspace.launcher.Bootstrap:*:Freelancer Desktop App" desktop='^4' state=floating follow=on focus=on
+bspc rule -a "com.freelancer.workspace.launcher.Bootstrap:*:*"  state=floating follow=off focus=off
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                    Upwork Desktop App                    │
+#  ╰──────────────────────────────────────────────────────────╯
+
+bspc rule -a Upwork desktop='^4' state=floating follow=on focus=on
 
 
-#  Communication
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                       Torrent Apps                       │
+#  ╰──────────────────────────────────────────────────────────╯
+
 declare -a communication=(qBittorrent Transmission-gtk)
 for i in ${communication[@]}; do
    bspc rule -a $i desktop='^7' follow=on focus=on; done
 
 
-#  Communication
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Email Clients                       │
+#  ╰──────────────────────────────────────────────────────────╯
+
 declare -a communication=(Mailspring Thunderbird)
 for i in ${communication[@]}; do
    bspc rule -a $i desktop='^8' follow=on focus=on; done
 
 
-#  Messaging
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Messaging Apps                      │
+#  ╰──────────────────────────────────────────────────────────╯
+
 declare -a media=(Skype Slack Telegram)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^9' follow=on focus=on; done

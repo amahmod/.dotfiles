@@ -52,11 +52,11 @@ super + shift + s
 
 # Rofi App Launcher
 super + space
-	rofi -show drun
+  rofi -show drun
 
 # Launch terminal
 super + Return
-  $TERMINAL -e tmux new-session -A -s primary
+  $TERMINAL
 
 # Open applications
 super + o; {c,b,f,t}
