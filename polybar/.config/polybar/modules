@@ -191,21 +191,23 @@ poll-interval = 5
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 ; Default: %H:%M:%S
 time-format = %H:%M
+
 format-charging = %{T2}<animation-charging>%{T-} <label-charging>
 format-charging-foreground = ${color.green}
 
 format-discharging = %{T2}<ramp-capacity>%{T-} <label-discharging>
+format-discharging-foreground = ${color.orange}
+
+format-full = %{T2}<ramp-capacity>%{T-} <label-full>
+format-full-foreground = ${color.green}
+
+format-low = %{T2}<ramp-capacity>%{T-} <label-low>
+format-low-foreground = ${color.red}
 
 label-charging = %percentage%% %time%
-label-charging-foreground = ${color.green}
-
 label-discharging = %percentage%%
-label-discharging-foreground = ${color.orange}
-
-label-full = BATTERY FULL
-label-ful-foreground = ${color.green}
-label-low = BATTERY LOW
-label-low-foreground = ${color.red}
+label-full = %percentage%%
+label-low = %percentage%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
