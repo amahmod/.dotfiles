@@ -17,15 +17,7 @@ return {
                         },
                     },
                 },
-                denols = {
-                    on_new_config = function(new_config)
-                        new_config.root_dir =
-                            require('lspconfig').util.root_pattern {
-                                'deno.json',
-                                'deno.jsonc',
-                            }
-                    end,
-                },
+                denols = {},
                 yamlls = {},
                 dockerls = {},
                 -- tsserver = {
@@ -135,22 +127,22 @@ return {
                     },
                 },
             },
-            -- you can do any additional lsp server setup here
-            -- return true if you don't want this server to be setup with lspconfig
             setup = {
-                -- example to setup with typescript.nvim
-                -- tsserver = function(_, opts)
-                --   require("typescript").setup({ server = opts })
-                --   return true
-                -- end,
-                -- Specify * to use this function as a fallback for any server
-                -- ["*"] = function(server, opts) end,
+                denols = function(_, opts)
+                    -- start denols only if  deno.json exists
+                    opts.root_dir = require('lspconfig').util.root_pattern(
+                        'deno.json',
+                        'deno.jsonc'
+                    )
+                    require('lspconfig').denols.setup(opts)
+                end,
             },
         },
         config = function(_, opts)
             -- setup formatting and keymaps
             require('base.utils').on_attach(function(client, buffer)
                 -- INFO: tsserver and typescript-tools conflicts with denols
+                -- stop tsserver in deno project
                 if
                     require('lspconfig').util.root_pattern(
                         'deno.json',
