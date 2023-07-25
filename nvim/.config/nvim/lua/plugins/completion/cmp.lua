@@ -1,6 +1,3 @@
---  AUTO COMPLETION --------------------------------------------------------
---  Auto completion engine [autocompletion engine]
---  https://github.com/hrsh7th/nvim-cmp
 return {
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -139,12 +136,6 @@ return {
                 ['<C-n>'] = cmp.mapping.select_next_item {
                     behavior = cmp.SelectBehavior.Insert,
                 },
-                ['<C-k>'] = cmp.mapping.select_prev_item {
-                    behavior = cmp.SelectBehavior.Insert,
-                },
-                ['<C-j>'] = cmp.mapping.select_next_item {
-                    behavior = cmp.SelectBehavior.Insert,
-                },
                 ['<C-u>'] = cmp.mapping(
                     cmp.mapping.scroll_docs(-4),
                     { 'i', 'c' }
@@ -185,8 +176,12 @@ return {
                 end, { 'i', 's' }),
             },
             sources = cmp.config.sources {
-                { name = 'luasnip', priority = 1000 },
-                { name = 'nvim_lsp', priority = 900 },
+                {
+                    name = 'nvim_lsp',
+                    trigger_characters = { '-' },
+                    priority = 1000,
+                },
+                { name = 'luasnip', priority = 900 },
                 { name = 'buffer', priority = 500 },
                 { name = 'path', priority = 250 },
             },
