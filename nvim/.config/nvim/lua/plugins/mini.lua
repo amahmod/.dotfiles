@@ -25,4 +25,11 @@ return {
             },
         },
     },
+    {
+        'echasnovski/mini.align',
+        event = { 'BufReadPost', 'BufNewFile' },
+        config = function(_, opts)
+            require('mini.align').setup(opts)
+        end,
+    },
 }
