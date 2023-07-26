@@ -28,6 +28,9 @@ map(
 map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
 map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
+map({ 'i' }, '<C-l>', '<Right>', { desc = 'Move cursor to right' })
+map({ 'i' }, '<C-h>', '<Left>', { desc = 'Move cursor to right' })
+
 -- }}}
 
 -- Better window management {{{
