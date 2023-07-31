@@ -5,8 +5,8 @@ return {
 
   -- Copy/Paste {{{
   { key = 'Enter', mods = 'ALT', action = 'ActivateCopyMode' },
-  { key = 'C', mods = 'ALT', action = act({ CopyTo = 'Clipboard' }) },
-  { key = 'V', mods = 'ALT', action = act({ PasteFrom = 'Clipboard' }) },
+  { key = 'c', mods = 'ALT', action = act({ CopyTo = 'Clipboard' }) },
+  { key = 'v', mods = 'ALT', action = act({ PasteFrom = 'Clipboard' }) },
   -- }}}
 
   -- {{{ Scroll
@@ -104,9 +104,9 @@ return {
 
   -- Tab  {{{
 
-  { key = 'n', mods = 'ALT|SHIFT', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
-  { key = ',', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = -1 }) },
-  { key = '.', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = 1 }) },
+  { key = 'n', mods = 'ALT', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
+  { key = '[', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = -1 }) },
+  { key = ']', mods = 'ALT', action = wezterm.action({ ActivateTabRelativeNoWrap = 1 }) },
   { key = '1', mods = 'ALT', action = wezterm.action({ ActivateTab = 0 }) },
   { key = '2', mods = 'ALT', action = wezterm.action({ ActivateTab = 1 }) },
   { key = '3', mods = 'ALT', action = wezterm.action({ ActivateTab = 2 }) },
