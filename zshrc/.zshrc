@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export ZSH_WEB_SEARCH_ENGINES=(reddit "https://www.reddit.com/search/?q=")
 
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell" # agnoster, cloud, robbyrussell
 
 plugins=(
     git
