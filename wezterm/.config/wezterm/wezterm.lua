@@ -75,17 +75,4 @@ return {
   --}}}
 }
 
--- create new tab
--- create new window
--- create vertical split
--- create horizontal split
--- close tab
--- close pane
--- resize pane
--- scroll down
--- scroll up
--- search
--- open url
--- activate copy mode
-
 -- vim:fdl=0:fdm=marker:
