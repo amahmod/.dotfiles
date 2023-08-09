@@ -317,4 +317,19 @@ ramp-background = ${color.grey}
 ramp-foreground = ${color.white}
 ramp-font = 5
 
+
+;  ╭──────────────────────────────────────────────────────────╮
+;  │                         Wakatime                         │
+;  ╰──────────────────────────────────────────────────────────╯
+
+[module/wakatime]
+type = custom/script
+exec = wakatime.sh
+interval = 300 ; five minutes
+format = %{T2} %{T-}<label>
+format-foreground = ${color.teal}
+format-padding = 2
+
+
+
 ; vim:ft=dosini
