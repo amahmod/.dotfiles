@@ -127,7 +127,7 @@ time = %I:%M %p
 [module/wlan]
 type = internal/network
 ; interface = enp7s0
-interface-type = wireless
+interface-type = wired
 interval = 2.0
 
 format-connected = <ramp-signal> <label-connected>
