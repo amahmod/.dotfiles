@@ -11,7 +11,14 @@ xrdb ~/.Xresources &
 killall bspswallow
 pidof bspswallow | bspswallow &
 
+dunst &
+unclutter &
 feh --bg-fill ~/.config/wall.jpg &
+sxhkd &
+picom -b --experimental-backend &
+~/.config/polybar/launch.sh &
+xset r rate 300 50 &
+
 
 ###---WORKSPACES---###
 workspaces() {
