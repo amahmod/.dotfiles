@@ -43,6 +43,7 @@ return {
   exit_behavior = 'Close',
   enable_scroll_bar = true,
   scrollback_lines = 10000,
+  warn_about_missing_glyphs = false,
 
   disable_default_key_bindings = true,
   keys = keybindings,
