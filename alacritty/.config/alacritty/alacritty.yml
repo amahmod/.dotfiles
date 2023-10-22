@@ -10,7 +10,6 @@ window:
     class:
         instance: Alacritty
         general: Alacritty
-    decorations_theme_variant: dark
 
 scrolling:
     history: 10000
@@ -19,7 +18,7 @@ scrolling:
 font:
     normal:
         family: 'MonoLisa'
-    size: 11
+    size: 12
     offset:
         x: 0
         y: 5
