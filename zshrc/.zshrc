@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export ZSH_WEB_SEARCH_ENGINES=(reddit "https://www.reddit.com/search/?q=")
+export FZF_DEFAULT_COMMAND='rg --files'
 
 ZSH_THEME="robbyrussell" # agnoster, cloud, robbyrussell
 
@@ -13,6 +14,7 @@ plugins=(
     vi-mode
     archlinux
     web-search
+    fzf
     jump
     aliases
     extract
