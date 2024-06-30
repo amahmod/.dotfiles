@@ -37,6 +37,17 @@ bindkey "^R" znt-history-widget
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 
+
+# https://stackoverflow.com/a/32614814
+fg() {
+    if [[ $# -eq 1 && $1 = - ]]; then
+        builtin fg %-
+    else
+        builtin fg %"$@"
+    fi
+}
+
+
 # Install global npm pacakges without sudo
 NPM_PACKAGES="${HOME}/.local/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
