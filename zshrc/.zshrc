@@ -52,3 +52,7 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Deno
+export DENO_INSTALL="/home/amahmod/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
