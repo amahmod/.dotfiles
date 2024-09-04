@@ -56,7 +56,7 @@ super + space
 
 # Launch terminal
 super + Return
-  wezterm
+  kitty
 
 # Open applications
 super + o; {c,b,f,t}
